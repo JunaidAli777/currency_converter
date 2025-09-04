@@ -19,10 +19,6 @@ const Converter = () => {
     }
     )
 
-    // const convert = (amount) => {
-    //     setTo(amount * 80)
-    // }
-
     const swap = () => {
         setFrom(to);
         setTo(from);
@@ -35,18 +31,18 @@ const Converter = () => {
         fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${fromCurrency}.min.json`)
             .then(res => res.json())
             .then(res => {
-                setTo((from * res[fromCurrency][toCurrency]).toFixed(2))
+                setTo((from * res[fromCurrency][toCurrency]).toFixed(4))
             })
             .catch(err => console.error(err))
-    }, [fromCurrency, toCurrency, from])
+    }, [fromCurrency, toCurrency, from , getCurrencies])
 
     return (
-        <div className='bg-gray-800 h-screen flex justify-center items-center'>
+        <div className={`bg-[url('/decent.jpg')] bg-cover bg-center min-h-screen flex justify-center items-center`}>
             <div
-                className='bg-white rounded-lg flex flex-col justify-center items-center p-10 gap-4'>
-                <div className='flex gap-3'>
+                className='bg-white/85 rounded-lg flex flex-col justify-center items-center p-10 gap-4 max-w-10/12'>
+                <div className='sm:flex sm:gap-3 max-w-full'>
                     <input
-                        className='px-4 py-3 border-2 border-gray-300 rounded w-96'
+                        className='px-4 py-3 border-2 border-gray-300 rounded w-96 max-w-full'
                         placeholder='From'
                         type="number"
                         value={from}
@@ -72,9 +68,9 @@ const Converter = () => {
                     swap
                 </button>
 
-                <div className='flex gap-3'>
+                <div className='sm:flex sm:gap-3 max-w-full'>
                     <input
-                        className='px-4 py-3 border-2 border-gray-300 rounded w-96'
+                        className='px-4 py-3 border-2 border-gray-300 rounded w-96 max-w-full'
                         placeholder='To'
                         type="number"
                         value={to}
