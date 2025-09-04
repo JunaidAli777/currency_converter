@@ -64,7 +64,7 @@ const Converter = () => {
 
                 <button
                     onClick={swap}
-                    className='cursor-pointer bg-blue-500 active:bg-blue-600 text-white -my-5 px-2 py-0.5 rounded z-100'>
+                    className='cursor-pointer bg-blue-500 active:bg-blue-600 text-white sm:-my-5 px-2 py-0.5 rounded z-100'>
                     swap
                 </button>
 
